@@ -2,7 +2,7 @@ FROM jetty:9.3.6
 MAINTAINER Carlos Palma <carlospalma at guadaltel.com>
 LABEL maintainer="Carlos Palma <carlospalma@guadaltel.com>"
 
-LABEL Name="etf-webapp" Description="Testing framework for spatial data and services" Vendor="European Union, interactive instruments GmbH" Version=“2020.1”
+LABEL Name="etf-webapp" Description="Testing framework for spatial data and services" Vendor="European Union, interactive instruments GmbH" Version=“2022.0”
 
 EXPOSE 8090
 
@@ -40,7 +40,7 @@ ENV REPO_USER etf-public-dev
 ENV REPO_PWD etf-public-dev
 
 # Possible values: “none” or URL to ZIP file
-ENV ETF_DL_TESTPROJECTS_ZIP https://github.com/inspire-eu-validation/ets-repository/archive/refs/heads/v2021.3.zip
+ENV ETF_DL_TESTPROJECTS_ZIP https://github.com/inspire-eu-validation/ets-repository/archive/refs/heads/v2022.0.zip
 # Subfolder in the projects directory
 ENV ETF_DL_TESTPROJECTS_DIR_NAME inspire-ets-repository
 # Possible values: true for overwriting the directory on every container start,
@@ -96,8 +96,8 @@ RUN openssl s_client -servername mapama.gob.es -connect mapama.gob.es:443 </dev/
 RUN /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/keytool -importcert -noprompt -trustcacerts -file /tmp/certificate.pem -keystore /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/cacerts -alias mapama.gob.es -storepass changeit
 
 #dgterritorio portugal
-RUN openssl s_client -servername cartografia.dgterritorio.gov.pt -connect cartografia.dgterritorio.gov.pt:443 </dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /tmp/certificate.pem
-RUN /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/keytool -importcert -noprompt -trustcacerts -file /tmp/certificate.pem -keystore /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/cacerts -alias cartografia.dgterritorio.gov.pt -storepass changeit
+#RUN openssl s_client -servername cartografia.dgterritorio.gov.pt -connect cartografia.dgterritorio.gov.pt:443 </dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /tmp/certificate.pem
+#RUN /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/keytool -importcert -noprompt -trustcacerts -file /tmp/certificate.pem -keystore /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/cacerts -alias cartografia.dgterritorio.gov.pt -storepass changeit
 
 #geonet
 

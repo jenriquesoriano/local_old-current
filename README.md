@@ -15,7 +15,7 @@ To start a new container on port 8080 and create a 'etf' data directory in your
 home directory, run the following command:
 
 ```CMD
-docker run --name inspire-validator -d -p 8080:8080 -v ~/etf:/etf docker.pkg.github.com/inspire-eu-validation/community/inspire-validator:2021.0
+docker run --name inspire-validator -d -p 8090:8090 -v ~/etf:/etf docker.pkg.github.com/inspire-eu-validation/community/inspire-validator:2022.0
 ```
 
 If you need to change the host data directory,
